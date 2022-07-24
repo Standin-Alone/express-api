@@ -5,7 +5,7 @@ const controller  = require('../Controller');
 
 // GROUP ROUTE
 route.group('/bantay-presyo',()=>{    
-    route.post('/login',controller.login)       
+    route.get('/login/:email',controller.login)       
     
 })
 

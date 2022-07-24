@@ -67,10 +67,21 @@ methods.login  = async (req,res)=>{
 methods.login  = async (req,res)=>{
 
     try{
-    
+        
+        
+        let email = req.params.email;
+
+        
+
+        let checkUsername =  await connection.createQueryBuilder().select()       
+                                    .from('users','fa')
+                                    .where(`username = :username`,{username:email})                        
+                                    .getRawOne();
+
+        console.warn(checkUsername)
 
         return res.send({
-            success:'success'
+            data: checkUsername
         })
         
     }catch(error){
