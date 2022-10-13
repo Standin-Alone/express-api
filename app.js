@@ -28,8 +28,8 @@ app.use(compression())
 //  LOAD ENV FILe
 dotenv.config()
 // VIEW ENGINE  SETUP
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jsx');
+
+app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 
@@ -84,7 +84,7 @@ app.use(permittedCrossDomainPolicies())
 // });
   
 
-const port = process.env.PORT || 9002;
+const port = process.env.PORT || 8080;
 app.listen(port, () => {
     console.log('Server running at ' + port)
 });

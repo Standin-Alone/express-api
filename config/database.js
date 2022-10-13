@@ -1,15 +1,18 @@
 const {DataSource} = require('typeorm');
+let sampleEntity = require("../models/test_entity");
+
 global.connection = new DataSource({
     type: "mysql", 
-    name: "ffrs",    
+    name: "vmp",    
     host: "localhost",
-    port: 3306,
+    port: 3320,
     username: "root",
     password: "",
-    database: "ffrs",
+    database: "vmp_db",
+    entities: ["./models/**/*.js"],
     // connectString: "(DESCRIPTION =(ADDRESS_LIST =(ADDRESS = (PROTOCOL = TCP)(Host = localhost)(Port = 3306)))(CONNECT_DATA =(SERVICE_NAME = FFRSORA.DA.GOV.PH)(SERVER=dedicated)))"
-},
-);
+});
+
 
 
 connection.initialize()
